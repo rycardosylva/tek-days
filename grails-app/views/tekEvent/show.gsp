@@ -95,9 +95,9 @@
 			<g:if test="${tekEventInstance?.tasks}">
 				<li class="fieldcontain"><span id="tasks-label" class="property-label"><g:message
 							code="tekEvent.tasks.label" default="Tasks" /></span> <g:each in="${tekEventInstance.tasks}" var="t">
-						<span class="property-value" aria-labelledby="tasks-label"><g:link controller="task" action="show"
+						<span class="property-value" aria-labelledby="tasks-label"> <g:link controller="task" action="show"
 								id="${t.id}">
-								${t?.encodeAsHTML()}
+								${t.title}
 							</g:link></span>
 					</g:each></li>
 			</g:if>
@@ -117,6 +117,8 @@
 							code="tekEvent.respondents.label" default="Respondents" /></span> <span class="property-value"
 					aria-labelledby="respondents-label"><g:fieldValue bean="${tekEventInstance}" field="respondents" /></span></li>
 			</g:if>
+
+
 
 		</ol>
 		<g:form url="[resource:tekEventInstance, action:'delete']" method="DELETE">
